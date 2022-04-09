@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Predict the price of books</title>
+	<link rel="shortcut icon" href="../static/img/icon.png" type="image/x-icon">
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" />
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="../static/css/style.css" />
+
+</head>
+
+<body>
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<div style="color: white; font-size: 40px;; text-align: center;">This app to predict <span style="color: #f23e3e;">profict</span> of rental bikes</div>
+						<form action="/predict" method="GET">
+							<div class="form-group">
+								<div class="form-checkbox">
+									<label for="roundtrip">
+										<input type="radio" id="roundtrip" name="is_holiday" value="1">
+										<span></span>Holiday
+									</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Temperature</span>
+										<input class="form-control" type="Number" placeholder="Temperature" name="temp" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Humidity</span>
+										<input class="form-control" type="Number" placeholder="humidity" name="humidity" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Number of rented bikes</span>
+										<input class="form-control" type="number" placeholder="rented bikes" name="rented_bikes" min=0 required>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Number of Month</span>
+										<input class="form-control" type="number" placeholder="month" name="month" min=1 max=12 required>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<span class="form-label">Hour</span>
+										<input class="form-control" type="number" placeholder="hour" name="hour" min=0 max=23 required>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<span class="form-label">Season</span>
+										<select name="season" class="form-control" required>
+											<option value="spring">Spring</option>
+											<option value="summer">Summer</option>
+											<option value="winter">Winter</option>
+											<option value="fall">Fall</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<span class="form-label">Weather</span>
+										<select name="weather" class="form-control" required>
+											<option value="mist">Mist</option>
+											<option value="rainy">Rainy</option>
+											<option value="snowy">Snowy</option>
+											<option value="clear">Clear</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Day</span>
+										<select name="day" class="form-control" required>
+											<option value="sunday">Sunday</option>
+											<option value="monday">Monday</option>
+											<option value="tuesday">Tuesday</option>
+											<option value="wednesday">Wednesday</option>
+											<option value="thursday">Thursday</option>
+											<option value="friday">Friday</option>
+											<option value="saturday">Saturday</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-btn">
+										<button type="submit" class="submit-btn">Predict Profit</button>
+									</div>
+								</div>
+							</div>
+						</form>
+						<hr>
+
+						{% if prediction %}
+							<h3 style="text-align: center; color: white;">Predict profit is <span style="color:#f23e3e; font-size:xx-large;">${{ prediction }}</span></h3>
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
